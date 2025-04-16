@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PRIVATE_KEY_CONTENT } from './abs-generation.constants';
 import { getSignedCookies } from '@aws-sdk/cloudfront-signer';
 
-const cloudfrontDistributionDomain = 'dpftuiyrs4sf9.cloudfront.net';
+const cloudfrontDistributionDomain = 'd37ckvo9xyfi5b.cloudfront.net';
 const KEYPAIR_ID = 'K4IURCX44QYAP';
 
 export interface CookiesData {
@@ -19,7 +19,7 @@ export interface CookiesData {
  * - `sameSite: 'none'` is required for cross-domain cookies (e.g., backend sets cookie for frontend)
  */
 const cookiesOptions = {
-  domain: 'live-medialive.arkeosai.com', // your deployed React frontend domain
+  domain: 'api-medialive.arkeosai.com', // your deployed React frontend domain
   secure: true,
   path: '/',
   sameSite: 'none',
