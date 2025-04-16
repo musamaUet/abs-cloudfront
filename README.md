@@ -12,6 +12,3 @@ This Project uses:
 ## Motivation
 
 - I struggled for months to make Signed Cookies to work on AWS. I found many people on Github issues who struggled with same issue. Some of them decided to pay Premium Support on AWS to get the problem fixed, but (as long as I know) none of those who paid the Premium support, shared their solution to the world. So when I found a solution, I decided to do it for free
-
-### Author: https://www.linkedin.com/in/mpcsj/
-# abs-cloudfront
