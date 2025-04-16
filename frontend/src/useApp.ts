@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { VideoInfo } from "./VideoPlayer/useVideoPlayer";
 
-const SAMPLE_S3_FILE_KEY = "file1/result/hls/sample_video_1080p.m3u8";
 const HLS_MIME_TYPE = "application/x-mpegURL"; // mime-type for HLS protocol
 
 interface AbsContentResult {
