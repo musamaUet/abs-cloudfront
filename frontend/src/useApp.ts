@@ -31,7 +31,6 @@ const useApp = () => {
   );
 
   const handleGetFileInfo = async () => {
-    const s3FileKey = encodeURIComponent(SAMPLE_S3_FILE_KEY); // path param
     const mimeType = HLS_MIME_TYPE;
 
     const result = await axios.get(
