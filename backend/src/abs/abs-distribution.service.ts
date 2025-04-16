@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PRIVATE_KEY_CONTENT } from './abs-generation.constants';
 import { getSignedCookies } from '@aws-sdk/cloudfront-signer';
 
-const cloudfrontDistributionDomain = 'api-medialive.arkeosai.com';
+const cloudfrontDistributionDomain = 'd37ckvo9xyfi5b.cloudfront.net';
 const KEYPAIR_ID = 'K4IURCX44QYAP';
 
 export interface CookiesData {
