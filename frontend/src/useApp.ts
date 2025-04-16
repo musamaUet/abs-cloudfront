@@ -35,7 +35,7 @@ const useApp = () => {
     const mimeType = HLS_MIME_TYPE;
 
     const result = await axios.get(
-      `http://localhost:4005/abs/MSN17311-ai-2.m3u8/access`,
+      `https://api-medialive.arkeosai.com/abs/MSN17311-ai-2.m3u8/access`,
       {
         withCredentials: true, // to set cookies from backend to frontend
       }
