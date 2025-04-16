@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 4005;
 const resolveAppMiddlewares = (app: INestApplication) => {
   app.use(cookieParser());
   app.enableCors({
-    origin: ['https://api-medialive.arkeosai.com'], // put your frontend endpoints here
+    origin: ['https://live-medialive.arkeosai.com'], // your deployed React frontend domain
     credentials: true, // allows frontend to receive cookies from backend
   });
 };
