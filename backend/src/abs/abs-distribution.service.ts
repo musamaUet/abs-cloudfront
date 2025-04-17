@@ -2,10 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { PRIVATE_KEY_CONTENT } from './abs-generation.constants';
 import { getSignedCookies } from '@aws-sdk/cloudfront-signer';
 
-const cloudfrontDistributionDomain =
-  'mpcsj-video-abs-distribution.mpcsj.online';
+const cloudfrontDistributionDomain = 'api-medialive.arkeosai.com';
 
-const KEYPAIR_ID = '<YOUR KEYPAIR_ID HERE FROM CLOUDFRONT>';
+const KEYPAIR_ID = 'K4IURCX44QYAP';
 
 export interface CookiesData {
   [key: string]: {
@@ -18,7 +17,7 @@ export interface CookiesData {
  * This does not work on localhost
  */
 const cookiesOptions = {
-  domain: 'mpcsj.online',
+  domain: 'arkeosai.com',
   secure: true,
   path: '/',
   sameSite: 'none',
@@ -28,6 +27,9 @@ const cookiesOptions = {
 export class AbsVideoDistributionService {
   async getSignedCookiesForFile(s3FileKey: string) {
     const url = `${cloudfrontDistributionDomain}/${encodeURI(s3FileKey)}`; // master .m3u8 file (HLS playlist)
+
+    console.log('url', url);
+
     const privateKey = PRIVATE_KEY_CONTENT;
 
     const intervalToAddInMs = 86400 * 1000;
@@ -47,11 +49,15 @@ export class AbsVideoDistributionService {
     };
 
     const policyString = JSON.stringify(policy);
+    console.log('policyString', policyString);
+
     const cookies = getSignedCookies({
       keyPairId: KEYPAIR_ID,
       privateKey,
       policy: policyString,
     });
+
+    console.log('policyString', policyString);
 
     const cookiesResult: CookiesData = {};
     Object.keys(cookies).forEach((key) => {
