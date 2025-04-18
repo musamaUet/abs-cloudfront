@@ -36,7 +36,7 @@ export class AbsVideoDistributionService {
     const policy = {
       Statement: [
         {
-          Resource: `https://${cloudfrontDistributionDomain}/*`,
+          Resource: `https://${cloudfrontDistributionDomain}/live/65a20334e5c423cbd34ac201_1731060377890/hls/`,
           Condition: {
             DateLessThan: {
               'AWS:EpochTime': Math.floor(
