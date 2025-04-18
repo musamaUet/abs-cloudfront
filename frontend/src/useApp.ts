@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { VideoInfo } from "./VideoPlayer/useVideoPlayer";
 
-const SAMPLE_S3_FILE_KEY = "file1/result/hls/sample_video_1080p.m3u8";
+const SAMPLE_S3_FILE_KEY = "MSN17311-ai-2.m3u8";
 const HLS_MIME_TYPE = "application/x-mpegURL"; // mime-type for HLS protocol
 
 interface AbsContentResult {
@@ -35,16 +35,21 @@ const useApp = () => {
     const mimeType = HLS_MIME_TYPE;
 
     const result = await axios.get(
-      `https://abs-data.mpcsj.online/abs/${s3FileKey}/access`,
+      `https://api-data.arkeosai.com/abs/${s3FileKey}/access`,
       {
         withCredentials: true, // to set cookies from backend to frontend
       }
     );
     const data = result.data as AbsContentResult;
-    setVideoContent({
-      videoSrc: data.fileUrl, // Cloudfront playlist file url (.m3u8)
-      videoMimeType: mimeType,
-    });
+    console.log("result.data", data);
+    if(data) {
+        setVideoContent({
+          videoSrc: data.fileUrl, // Cloudfront playlist file url (.m3u8)
+          videoMimeType: mimeType,
+        });
+      
+    }
+
   };
 
   useEffect(() => {
