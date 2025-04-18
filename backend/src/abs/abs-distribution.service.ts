@@ -26,7 +26,7 @@ const cookiesOptions = {
 @Injectable()
 export class AbsVideoDistributionService {
   async getSignedCookiesForFile(s3FileKey: string) {
-    const url = `${cloudfrontDistributionDomain}/${s3FileKey}`; // master .m3u8 file (HLS playlist)
+    const url = `${cloudfrontDistributionDomain}/live/65a20334e5c423cbd34ac201_1731060377890/hls/${s3FileKey}`; // master .m3u8 file (HLS playlist)
 
     console.log('url', url);
 
@@ -36,7 +36,7 @@ export class AbsVideoDistributionService {
     const policy = {
       Statement: [
         {
-          Resource: `https://${cloudfrontDistributionDomain}/live/65a20334e5c423cbd34ac201_1731060377890/hls/`,
+          Resource: `https://${cloudfrontDistributionDomain}/live/65a20334e5c423cbd34ac201_1731060377890/hls/*`,
           Condition: {
             DateLessThan: {
               'AWS:EpochTime': Math.floor(
