@@ -26,7 +26,7 @@ const cookiesOptions = {
 @Injectable()
 export class AbsVideoDistributionService {
   async getSignedCookiesForFile(s3FileKey: string) {
-    const url = `${cloudfrontDistributionDomain}/${encodeURI(s3FileKey)}`; // master .m3u8 file (HLS playlist)
+    const url = `${cloudfrontDistributionDomain}/${s3FileKey}`; // master .m3u8 file (HLS playlist)
 
     console.log('url', url);
 

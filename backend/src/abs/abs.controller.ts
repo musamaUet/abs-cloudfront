@@ -16,15 +16,16 @@ export class AbsController {
     await this.absGenerationService.generateAbsContent(data);
   }
 
-  @Get(':s3Key/access')
+  @Post('/access')
   async getFileAccess(
-    @Param() params: AbsContentPathParams,
+    @Body() body: any,
     @Res({ passthrough: true }) response: Response,
   ) {
-    const { s3Key } = params;
+    const { s3FileKey } = body;
 
+    console.log('body', body);
     const result = await this.absDistributionService.getSignedCookiesForFile(
-      s3Key,
+      s3FileKey,
     );
 
     // set cookies on response
